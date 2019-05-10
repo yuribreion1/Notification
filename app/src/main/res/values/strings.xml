@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Notificacoes</string>
     <string name="exibe_notificacao">Exibir notificação</string>
+    <string name="notification_description">Notificações importantes sobre o aplicativo</string>
+    <string name="notification_main">Notificações principais</string>
+    <string name="notification_title">Uma notificação de exemplo</string>
+    <string name="notification_text">Não foi possível realizar o download</string>
 </resources>

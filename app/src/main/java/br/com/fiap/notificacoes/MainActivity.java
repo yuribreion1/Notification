@@ -13,6 +13,8 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String CHANNED_ID = "alertas";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,10 +28,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         NotificationChannel notificationChannel =
-                new NotificationChannel("alertas", "Notificações principais", NotificationManager.IMPORTANCE_DEFAULT);
+                new NotificationChannel(CHANNED_ID, getString(R.string.notification_main), NotificationManager.IMPORTANCE_DEFAULT);
 
         // Descrição
-        notificationChannel.setDescription("Notificações importantes sobre o aplicativo");
+        notificationChannel.setDescription(getString(R.string.notification_description));
         // Habilitar luz
         notificationChannel.enableLights(true);
         // Selecionar cor
@@ -42,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
 
         // Criando o alerta efetivamente
         NotificationCompat.Builder notification =
-                new NotificationCompat.Builder(this, "alertas");
+                new NotificationCompat.Builder(this, CHANNED_ID);
 
-        notification.setContentTitle("Uma notificação de exemplo");
-        notification.setChannelId("alertas");
-        notification.setContentText("Não foi possível realizar o download");
+        notification.setContentTitle(getString(R.string.notification_title));
+        notification.setChannelId(CHANNED_ID);
+        notification.setContentText(getString(R.string.notification_text));
         notification.setSmallIcon(R.mipmap.ic_launcher);
         notification.setContentIntent(
                 PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class),
